@@ -14,4 +14,9 @@ describe "delete a park route", :type => :request do
   it 'returns a deleted status' do 
     expect(response).to have_http_status(200)
   end
+
+  it 'returns error message if there is no id match for deleted item' do
+    delete '/parks/1'
+    expect(response).to have_http_status(404)
+  end
 end
