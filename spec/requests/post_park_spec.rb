@@ -18,6 +18,11 @@ describe "post a park route", :type => :request do
     expect(JSON.parse(response.body)['state']).to eq('Michigan')
   end 
 
-  it 'returns the the year the park was established' do (3363)
+  it 'returns the the year the park was established' do 
+    expect(JSON.parse(response.body)['established']).to eq(3363) 
+  end
+
+  it 'returns if the park is a national park or not' do 
+    expect(JSON.parse(response.body)['national']).to eq(false) 
   end
 end
