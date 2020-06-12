@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
   include Response
-  before_action :authenticate_request
-  attr_reader :current_user
+  # before_action :authenticate_request
+  # attr_reader :current_user
 
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
@@ -12,10 +12,10 @@ class ApplicationController < ActionController::API
     json_response({ message: exception.message }, :unprocessable_entity)
   end
 
-  private
-  def authenticate_request
-    @current_user = AuthorizeApiRequest.call(request.headers).result
-    render json: { error: 'Not Authorized' }, status: 401 unless @current_user
-  end 
+  # private
+  # def authenticate_request
+  #   @current_user = AuthorizeApiRequest.call(request.headers).result
+  #   render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+  # end 
 end
 
