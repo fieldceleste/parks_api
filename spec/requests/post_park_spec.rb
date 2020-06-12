@@ -1,0 +1,12 @@
+require 'rails_helper'
+
+describe "post a park route", :type => :request do
+  
+  before do
+    post '/parks', params: {:name => 'Rivendell', :description => '3 wolf moon pop-up tote bag ramps meditation gentrify chia fixie normcore selvage.', :state=> 'Michigan', :established => "3363", :national => false }
+  end
+
+  it 'returns the park name' do
+    expect(JSON.parse(response.body)['name']).to eq('Rivendell')
+  end
+end
