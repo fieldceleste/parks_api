@@ -16,12 +16,12 @@ class ParksController < ApplicationController
   end
 
   def create 
-    @park =Park.create!(park_params)
+    @park = Park.create!(park_params)
     json_response(@park, :created)
   end
   
   def update
-    @park =Park.find(params[:id])
+    @park = Park.find(params[:id])
     if @park.update!(park_params)
       render status: 200, json: {
         message: "This park was updated successfully."
@@ -30,7 +30,7 @@ class ParksController < ApplicationController
   end
 
   def destroy 
-    @park =Park.find(params[:id])
+    @park = Park.find(params[:id])
     if @park.destroy
       render status: 200, json: {
         message: "This park has been successfully deleted!"
@@ -39,6 +39,10 @@ class ParksController < ApplicationController
   end
 
   private
+  
+  def json_response(object, status = :ok)
+    render json: object, status: status
+  end 
 
   def park_params
     params.permit(:name, :state, :description, :established)
