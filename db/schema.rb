@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_163146) do
+ActiveRecord::Schema.define(version: 2020_06_12_165544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_163146) do
     t.string "state"
     t.string "description"
     t.integer "established"
+    t.boolean "national", default: false
   end
 
   create_table "users", force: :cascade do |t|
