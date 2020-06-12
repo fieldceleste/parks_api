@@ -37,7 +37,7 @@ describe "Receive exception on Post park route", :type => :request do
     post '/parks', params: {:name => '', :description => '3 wolf moon pop-up tote bag ramps meditation gentrify chia fixie normcore selvage.', :state=> 'Michigan', :established => 3363, :national => false }
   end
 
-  it 'returns a created status' do
+  it 'returns a 422 error status' do
     expect(response).to have_http_status(:unprocessable_entity)
   end
 end
