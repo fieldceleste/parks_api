@@ -12,7 +12,7 @@ class ParksController < ApplicationController
 
   def search
     @parks = Park.search_by_term(params[:query])
-    render json: @parks
+    json_response(@parks)
   end
 
   def create 
