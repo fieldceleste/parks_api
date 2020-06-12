@@ -9,4 +9,9 @@ describe "post a park route", :type => :request do
   it 'returns the park name' do
     expect(JSON.parse(response.body)['name']).to eq('Rivendell')
   end
+
+  it 'returns the park description' do 
+    expect(JSON.parse(response.body)['description']).to eq('3 wolf moon pop-up tote bag ramps meditation gentrify chia fixie normcore selvage.')
+  end 
+
 end
