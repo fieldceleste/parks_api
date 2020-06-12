@@ -10,4 +10,8 @@ describe "put a park route", :type => :request do
   it 'returns the updated description' do
     expect(JSON.parse(response.body)['message']).to eq('This park was updated successfully.')
   end
+
+  it 'returns a updated status' do
+    expect(response).to have_http_status(200)
+  end
 end
