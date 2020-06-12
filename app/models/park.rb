@@ -1,4 +1,5 @@
 class Park < ApplicationRecord
+
   validates :name, presence: true
   validates :description, presence: true
   validates_length_of :description, minimum: 50, maximum: 250
@@ -6,14 +7,14 @@ class Park < ApplicationRecord
   validates :established, presence: true
   before_save(:titleize_park)
 
-  pg_search_scope :search_by_term, againist: [:name, :state, :established]
+  pg_search_scope :search_by_term, againist: [:name, :state, :established],
     using: {
       tsearch: {
         any_word: true,
           prefix: true
          }
        } 
-    end
+    
 
   private 
     def titleize_park
