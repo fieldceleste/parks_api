@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'faker' 
 gem 'httparty'
 gem 'pg_search'
+gem 'activesupport', '~> 5.2', '>= 5.2.4.3'
 
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
