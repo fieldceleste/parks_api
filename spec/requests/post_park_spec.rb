@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "post a park route", :type => :request do
   
   before do
-    post '/parks', params: {:name => 'Rivendell', :description => '3 wolf moon pop-up tote bag ramps meditation gentrify chia fixie normcore selvage.', :state=> 'Michigan', :established => "3363", :national => false }
+    post '/parks', params: {:name => 'Rivendell', :description => '3 wolf moon pop-up tote bag ramps meditation gentrify chia fixie normcore selvage.', :state=> 'Michigan', :established => 3363, :national => false }
   end
 
   it 'returns the park name' do
@@ -17,4 +17,7 @@ describe "post a park route", :type => :request do
   it 'returns the what state the park is in' do 
     expect(JSON.parse(response.body)['state']).to eq('Michigan')
   end 
+
+  it 'returns the the year the park was established' do (3363)
+  end
 end
