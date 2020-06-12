@@ -25,4 +25,8 @@ describe "post a park route", :type => :request do
   it 'returns if the park is a national park or not' do 
     expect(JSON.parse(response.body)['national']).to eq(false) 
   end
+  
+  it 'returns a created status' do
+    expect(response).to have_http_status(:created)
+  end
 end
