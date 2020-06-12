@@ -33,7 +33,7 @@ class ParksController < ApplicationController
     @park =Park.find(params[:id])
     if @park.destroy
       render status: 200, json: {
-        message: "This Park has been successfully deleted!"
+        message: "This park has been successfully deleted!"
       }
     end
   end
