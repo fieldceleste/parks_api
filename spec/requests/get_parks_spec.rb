@@ -13,3 +13,4 @@ describe "get all park routes", :type => :request do
     expect(response).to have_http_status(:success)
   end 
 end 
+
