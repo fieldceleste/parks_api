@@ -14,4 +14,7 @@ describe "post a park route", :type => :request do
     expect(JSON.parse(response.body)['description']).to eq('3 wolf moon pop-up tote bag ramps meditation gentrify chia fixie normcore selvage.')
   end 
 
+  it 'returns the what state the park is in' do 
+    expect(JSON.parse(response.body)['state']).to eq('Michigan')
+  end 
 end
