@@ -6,7 +6,7 @@ class Park < ApplicationRecord
   validates :established, presence: true
   before_save(:titleize_park)
 
-  pg_search_scope :search_by_term, against: [:name, :state, :established],
+  pg_search_scope :search_by_term, against: [:name, :state, :established, :national],
     using: {
       tsearch: {
         any_word: true,
@@ -14,7 +14,6 @@ class Park < ApplicationRecord
          }
        } 
     
-
   private 
     def titleize_park
       self.name = self.name.titleize
