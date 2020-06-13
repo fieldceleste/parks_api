@@ -1,12 +1,12 @@
 _State/National Parks Api_
 
 
-#### _By: Celeste Field_
+# _By: Celeste Field_
 
 ## Project Goals
 * _Be able to allow to allow users to view different state and national parks around the Us using a custom built API_
 
-## End Points
+### End Points
 
 | Functionality | API Call |
 | ------------- | -------- |

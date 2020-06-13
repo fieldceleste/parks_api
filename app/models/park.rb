@@ -5,6 +5,7 @@ class Park < ApplicationRecord
   validates :state, presence: true
   validates :established, presence: true
   before_save(:titleize_park)
+  # paginates_per 10
 
   pg_search_scope :search_by_term, against: [:name, :state, :established, :national],
     using: {
@@ -13,7 +14,9 @@ class Park < ApplicationRecord
           prefix: true
          }
        } 
-    
+    default_scope { order(state: :asc)}
+      
+
   private 
     def titleize_park
       self.name = self.name.titleize
