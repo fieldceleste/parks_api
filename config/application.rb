@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require "rails"
+require 'rack/throttle'
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -10,7 +11,6 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
-require 'rack/throttle'
 
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
@@ -34,6 +34,6 @@ module ParksApp
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.use Rack::Throttle::Daily, :max => 5000
+    config.middleware.use Rack::Throttle::Daily, :max => 200
   end
 end
