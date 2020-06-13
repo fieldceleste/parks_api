@@ -6,12 +6,12 @@ describe "get all park routes", :type => :request do
   
   before { get '/parks'}
 
-  it 'returns search results for park' do
+  it 'returns search result for park' do
     @park = Park.create( {:id => 2, :name => 'Rivendell', :description => '3 wolf moon pop-up tote bag ramps meditation gentrify chia fixie normcore selvage.', :state=> 'Michigan', :established => 3363, :national => false })
     get '/search?query=3363'
     expect(JSON.parse(response.body).size).to eq(1)
   end
-
+  
   it 'returns error message when search result is empty' do
     @park = Park.create( {:id => 2, :name => 'Rivendell', :description => '3 wolf moon pop-up tote bag ramps meditation gentrify chia fixie normcore selvage.', :state=> 'Michigan', :established => 3363, :national => false })
     get '/search?query=12345677'

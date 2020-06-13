@@ -15,6 +15,11 @@ class ParksController < ApplicationController
     json_response(@parks)
   end
 
+  def random
+    @parks = Park.pluck(params[:id]).shuffle[0..4]
+    json_response(@parks)
+  end
+
   def create 
     @park = Park.create!(park_params)
     json_response(@park, :created)
